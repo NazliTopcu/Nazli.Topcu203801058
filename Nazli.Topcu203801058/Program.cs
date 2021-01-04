@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,63 +10,49 @@ namespace Nazli.Topcu203801058
     {
         static void Main(string[] args)
         {
+
+
             Random rastgele = new Random();
             int random = 0;
             int sayiTahmini = 0;
             int hak = 0;
-        Baslangic:
-            Console.WriteLine("Lütfen bir seviye seçiniz;");
-            Console.WriteLine("Kolay seviye için 1'e\nOrta seviye için 2'ye\nZor seviye için 3'e basınız.\n");
-            int oyunseviyesi = Convert.ToInt32(Console.ReadLine());
+            int oyunseviyesi = 0;
+            int i;
 
-            if (oyunseviyesi == 1)
+                Console.WriteLine("Lütfen bir seviye seçiniz;");
+                Console.WriteLine("Kolay seviye için 1'e\nOrta seviye için 2'ye\nZor seviye için 3'e basınız.\n");
+                oyunseviyesi = Convert.ToInt32(Console.ReadLine());
+            do
             {
-                Console.WriteLine("\nKolay seviyeyi seçtiniz. Tahmin hakkınız 6. Tahmin edilecek sayı aralığınız 1-10.");
-                hak = 6;
-                random = rastgele.Next(1, 10);
-                for (int i = 1; i <= hak; i++)
+                
+
+                switch (oyunseviyesi)
                 {
-                    Console.WriteLine("Sayı Tahmini Gir : ");
-                    sayiTahmini = Convert.ToInt32(Console.ReadLine());
-                    if (random == sayiTahmini)
-                    {
-                        Console.WriteLine("Tebrikler Bildiniz....");
-                        Console.WriteLine("Oyun Bitti.... ");
-                        break;
-                    }
-                    Console.WriteLine("Bilemediniz Kalan Hakkınız :  " + (hak - i));
-                    if ((hak - i) == 0)
-                        Console.WriteLine("Oyun Bitti.... ");
-                }
-            }
+                    case 1:
 
-            else if (oyunseviyesi == 2)
-            {
-                Console.WriteLine("\nOrta seviyeyi seçtiniz. Tahmin hakkınız 4.Tahmin edilecek sayı aralığınız 1-25.");
-                hak = 4;
-                random = rastgele.Next(1, 25);
-                for (int i = 1; i <= hak; i++)
-                {
-                    Console.WriteLine("Sayı Tahmini Gir : ");
-                    sayiTahmini = Convert.ToInt32(Console.ReadLine());
-                    if (random == sayiTahmini)
-                    {
-                        Console.WriteLine("Tebrikler Bildiniz....");
-                        Console.WriteLine("Oyun Bitti.... ");
-                        break;
-                    }
-                    Console.WriteLine("Bilemediniz Kalan Hakkınız :  " + (hak - i));
-                    if ((hak - i) == 0)
-                        Console.WriteLine("Oyun Bitti.... ");
-                }
-            }
+                        Console.WriteLine("\nKolay seviyeyi seçtiniz. Tahmin hakkınız 6. Tahmin edilecek sayı aralığınız 1-10.");
+                        hak = 6;
+                        random = rastgele.Next(1, 10);
 
-            else if (oyunseviyesi == 3)
-            {
-                Console.WriteLine("\nZor seviyeyi seçtiniz. Tahmin hakkınız 2. Tahmin edilecek sayı aralığınız 1-50.");
+                        break;
+
+                    case 2:
+
+                        Console.WriteLine("\nOrta seviyeyi seçtiniz. Tahmin hakkınız 4.Tahmin edilecek sayı aralığınız 1-25.");
+                        hak = 4;
+                        random = rastgele.Next(1, 25);
+
+                       
+                            break;            
+                case 3:
+                
+                    Console.WriteLine("\nZor seviyeyi seçtiniz. Tahmin hakkınız 2. Tahmin edilecek sayı aralığınız 1-50.");
                 hak = 2;
                 random = rastgele.Next(1, 50);
-                for (int i = 1; i <= hak; i++)
+
+                break;
+                }
+                for ( i = 1; i <= hak; i++)
                 {
                     Console.WriteLine("Sayı Tahmini Gir : ");
                     sayiTahmini = Convert.ToInt32(Console.ReadLine());
@@ -80,15 +66,13 @@ namespace Nazli.Topcu203801058
                     if ((hak - i) == 0)
                         Console.WriteLine("Oyun Bitti.... ");
                 }
-            }
-            else
-            {
-                Console.WriteLine("\nLütfen Geçerli Bir Değer Giriniz!\n");
-                goto Baslangic;
-
-            }
+  
+            } while (oyunseviyesi != 1 && oyunseviyesi != 2 && oyunseviyesi != 3);
 
             Console.ReadKey();
-        }
-    }
 }
+            }
+    }
+            
+    
+
